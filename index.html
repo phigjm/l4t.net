@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L4T Alumni-Netzwerk – DPG</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <style>
+    /* DPG: mittleres Blau + Gelb/Gold Akzent */
+    :root {
+      --dpg-blue:    #0057a8;   /* DPG Primärblau */
+      --dpg-blue2:   #004080;   /* dunklere Variante */
+      --dpg-yellow:  #f5c400;   /* DPG Gelb/Gold */
+      --dpg-yellow2: #d9ac00;
+      --bg:          #f3f5f8;
+      --border:      #d0d8e4;
+      --text:        #1a1c2a;
+      --muted:       #556070;
+      --white:       #ffffff;
+      --max:         1080px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.65; }
+
+    /* TOP BAR */
+    .topbar { background: var(--dpg-blue2); padding: 0 2rem; height: 36px; display: flex; align-items: center; justify-content: space-between; }
+    .topbar-brand { font-size: 11.5px; color: rgba(255,255,255,0.55); letter-spacing:.04em; }
+    .topbar-brand span { color: rgba(255,255,255,0.9); font-weight: 700; }
+    .topbar-links { display: flex; gap: 1.4rem; }
+    .topbar-links a { font-size: 11px; color: rgba(255,255,255,0.55); text-decoration: none; }
+    .topbar-links a:hover { color: white; }
+
+    /* NAV */
+    nav { background: var(--dpg-blue); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 62px; border-bottom: 4px solid var(--dpg-yellow); }
+    .nav-brand { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+    .nav-badge { background: var(--dpg-yellow); color: var(--dpg-blue2); font-size: 13px; font-weight: 700; letter-spacing: .08em; padding: 5px 10px; }
+    .nav-name { color: white; font-size: 14.5px; font-weight: 300; }
+    .nav-name strong { font-weight: 700; }
+    .nav-links { display: flex; list-style: none; height: 100%; }
+    .nav-links a { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 13px; padding: 0 1rem; display: flex; align-items: center; border-bottom: 4px solid transparent; margin-bottom: -4px; transition: color .2s, border-color .2s; }
+    .nav-links a:hover { color: white; border-bottom-color: var(--dpg-yellow); }
+
+    /* HERO */
+    .hero { background: var(--dpg-blue); padding: 72px 2rem 80px; }
+    .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 290px; gap: 3.5rem; align-items: center; }
+    .hero-tag { display: inline-block; background: var(--dpg-yellow); color: var(--dpg-blue2); font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 1.1rem; }
+    .hero h1 { font-family: 'Merriweather', serif; font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 300; color: white; line-height: 1.28; margin-bottom: 1.1rem; }
+    .hero-sub { color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.82; margin-bottom: 2rem; max-width: 490px; }
+    .btn-yellow { display: inline-block; background: var(--dpg-yellow); color: var(--dpg-blue2); font-weight: 700; font-size: 12.5px; letter-spacing: .07em; text-transform: uppercase; padding: 11px 22px; text-decoration: none; transition: background .2s; }
+    .btn-yellow:hover { background: var(--dpg-yellow2); }
+
+    .hero-stats { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.15); }
+    .hstat { background: rgba(255,255,255,0.07); padding: 1.3rem 1.5rem; border-left: 4px solid var(--dpg-yellow); }
+    .hstat-num { font-family: 'Merriweather', serif; font-size: 1.9rem; font-weight: 300; color: white; line-height: 1; }
+    .hstat-label { font-size: 11.5px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+    /* SECTIONS */
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 60px 2rem; }
+    .section-head { border-left: 4px solid var(--dpg-yellow); padding-left: 1rem; margin-bottom: 2.2rem; }
+    .eyebrow { font-size: 10.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--dpg-blue); margin-bottom: 4px; }
+    .section-head h2 { font-family: 'Merriweather', serif; font-size: clamp(1.25rem, 2.5vw, 1.65rem); font-weight: 300; color: var(--dpg-blue2); line-height: 1.3; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 3.5rem; align-items: start; }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 15px; line-height: 1.82; }
+    .sidebar-card { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--dpg-blue); padding: 1.5rem; }
+    .sidebar-card h3 { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--dpg-blue); margin-bottom: 1.1rem; }
+    .si { display: flex; align-items: flex-start; gap: .85rem; padding: .75rem 0; border-bottom: 1px solid var(--border); }
+    .si:last-child { border-bottom: none; }
+    .si-icon { width: 30px; height: 30px; background: var(--dpg-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+    .si-text h4 { font-size: 13px; font-weight: 700; color: var(--text); }
+    .si-text p { font-size: 12px; color: var(--muted); line-height: 1.5; margin-top: 2px; }
+
+    /* PROGRAMME */
+    .bg-white-sec { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border: 1px solid var(--border); background: var(--border); }
+    .step { background: var(--white); padding: 1.7rem 1.4rem; position: relative; }
+    .step::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--dpg-blue); }
+    .step-num { font-family: 'Merriweather', serif; font-size: 2rem; font-weight: 300; color: var(--border); line-height: 1; margin-bottom: .5rem; }
+    .step-phase { font-size: 10px; font-weight: 700; letter-spacing:.14em; text-transform:uppercase; color: var(--dpg-blue); margin-bottom: .4rem; }
+    .step h3 { font-size: 14px; font-weight: 700; color: var(--dpg-blue2); margin-bottom: .45rem; }
+    .step p { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+    /* MEMBERS */
+    .members-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
+    .member-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--dpg-yellow); padding: 1.4rem; display: flex; gap: .9rem; }
+    .avatar { width: 48px; height: 48px; background: var(--dpg-blue); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Merriweather', serif; font-size: .95rem; font-weight: 300; flex-shrink: 0; border-radius: 50%; }
+    .member-info h3 { font-size: 14px; font-weight: 700; color: var(--text); }
+    .member-cohort { display: inline-block; background: var(--dpg-yellow); color: var(--dpg-blue2); font-size: 9.5px; font-weight: 700; letter-spacing:.07em; padding: 2px 6px; margin: 4px 0 5px; }
+    .member-info p { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+    /* CTA */
+    .cta-band { background: var(--dpg-blue); border-top: 4px solid var(--dpg-yellow); }
+    .cta-inner { max-width: var(--max); margin: 0 auto; padding: 52px 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .cta-band h2 { font-family: 'Merriweather', serif; font-size: 1.55rem; font-weight: 300; color: white; }
+    .cta-band p { color: rgba(255,255,255,0.65); margin-top: .4rem; font-size: 14px; }
+    .btn-white { display: inline-block; background: var(--dpg-yellow); color: var(--dpg-blue2); font-weight: 700; font-size: 12.5px; letter-spacing:.06em; text-transform:uppercase; padding: 11px 22px; text-decoration: none; white-space: nowrap; transition: background .2s; }
+    .btn-white:hover { background: var(--dpg-yellow2); }
+
+    /* FOOTER */
+    footer { background: var(--dpg-blue2); padding: 1.8rem 2rem; }
+    .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 1.4rem; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.45); text-decoration: none; }
+    .footer-links a:hover { color: white; }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-stats { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .members-grid { grid-template-columns: 1fr; }
+      .cta-inner { flex-direction: column; text-align: center; }
+      .nav-links, .topbar-links { display: none; }
+    }
+    @media (max-width: 520px) { .steps-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-brand"><span>DPG</span> · Deutsche Physikalische Gesellschaft e. V.</span>
+  <div class="topbar-links">
+    <a href="https://www.dpg-physik.de" target="_blank">dpg-physik.de</a>
+    <a href="#">Mitglieder-Login</a>
+  </div>
+</div>
+
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-badge">DPG</div>
+    <span class="nav-name"><strong>Leading for Tomorrow</strong> Alumni-Netzwerk</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#netzwerk">Über das Netzwerk</a></li>
+    <li><a href="#programm">Das Programm</a></li>
+    <li><a href="#alumni">Alumni</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">Alumni-Netzwerk</span>
+      <h1>Leading for Tomorrow<br />Ehemalige. Vernetzt.<br />Weiterführend.</h1>
+      <p class="hero-sub">
+        Das Alumni-Netzwerk des DPG-Führungsprogramms verbindet Physikerinnen und Physiker,
+        die Führungsverantwortung in Wissenschaft, Forschung und Industrie übernehmen.
+      </p>
+      <a href="#netzwerk" class="btn-yellow">Mehr erfahren</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-num">200+</div>
+        <div class="hstat-label">Alumni in ganz Deutschland</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">8+</div>
+        <div class="hstat-label">Programmjahrgänge</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">2</div>
+        <div class="hstat-label">Sprachen – Deutsch &amp; Englisch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="netzwerk">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="section-head">
+          <p class="eyebrow">Das Netzwerk</p>
+          <h2>Physiker:innen, die Führung gestalten</h2>
+        </div>
+        <div class="about-text">
+          <p>„Leading for Tomorrow" bereitet Physikerinnen und Physiker seit Jahren auf Führungsaufgaben vor – in der Forschung ebenso wie in der Industrie. Als Alumni verbindet uns eine gemeinsame Erfahrung: Wir haben gelernt, wie Menschen in wissenschaftlichen und unternehmerischen Kontexten wirksam geführt werden.</p>
+          <p>Das Alumni-Netzwerk schafft einen dauerhaften Raum für diesen Austausch. Wir treffen uns auf Jahrestreffen und informellen Veranstaltungen, teilen Erfahrungen aus unseren Karrierewegen und begleiten neue Generationen von Programmteilnehmenden.</p>
+          <p>Als Teil der Deutschen Physikalischen Gesellschaft steht das Netzwerk für Qualität, Wissenschaftlichkeit und den kollegialen Zusammenhalt der physikalischen Gemeinschaft in Deutschland.</p>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <h3>Netzwerk auf einen Blick</h3>
+        <div class="si">
+          <div class="si-icon">⟳</div>
+          <div class="si-text"><h4>Regelmäßiger Austausch</h4><p>Jährliches Netzwerktreffen und digitale Formate für alle Alumni.</p></div>
+        </div>
+        <div class="si">
+          <div class="si-icon">◈</div>
+          <div class="si-text"><h4>Thematische Vernetzung</h4><p>Karriere, Wissenschaftsmanagement, Teamführung und Übergänge.</p></div>
+        </div>
+        <div class="si">
+          <div class="si-icon">↗</div>
+          <div class="si-text"><h4>Mentoring</h4><p>Alumni begleiten aktive Teilnehmende als Mentorinnen und Mentoren.</p></div>
+        </div>
+        <div class="si">
+          <div class="si-icon">✦</div>
+          <div class="si-text"><h4>DPG-Gemeinschaft</h4><p>Teil der größten nationalen physikalischen Fachgesellschaft der Welt.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white-sec" id="programm">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Das Programm</p>
+      <h2>Vier Workshops. Sechs Monate. Eine Gemeinschaft.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <p class="step-phase">Kick-off</p>
+        <h3>Start Leading</h3>
+        <p>Grundlagen der Führung und der eigenen Führungspersönlichkeit – der Einstieg ins Programm.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <p class="step-phase">Workshop</p>
+        <h3>Leadership in Practice</h3>
+        <p>Teamentwicklung, Kommunikation und Umgang mit Konflikten in wissenschaftlichen Gruppen.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <p class="step-phase">Workshop</p>
+        <h3>Organisationen gestalten</h3>
+        <p>Strategisches Denken in Forschungsinfrastrukturen – CERN, DESY, Exzellenzcluster und Industrie.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <p class="step-phase">Abschluss</p>
+        <h3>Transfer &amp; Netzwerk</h3>
+        <p>Reflexion, Übergang ins Alumni-Netzwerk und Planung konkreter nächster Schritte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="alumni">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Alumni</p>
+      <h2>Menschen aus dem Netzwerk</h2>
+    </div>
+    <div class="members-grid">
+      <div class="member-card">
+        <div class="avatar">AK</div>
+        <div class="member-info">
+          <h3>Dr. Anna Krause</h3>
+          <span class="member-cohort">Jahrgang 2019</span>
+          <p>Teamleitung Quantenphotonik<br />Fraunhofer-Institut, Jena</p>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="avatar">ML</div>
+        <div class="member-info">
+          <h3>Dr. Marcus Lange</h3>
+          <span class="member-cohort">Jahrgang 2021</span>
+          <p>Head of R&amp;D<br />Carl Zeiss AG, Oberkochen</p>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="avatar">SB</div>
+        <div class="member-info">
+          <h3>Dr. Sophie Brandt</h3>
+          <span class="member-cohort">Jahrgang 2022</span>
+          <p>Wissenschaftsmanagement<br />Helmholtz-Gemeinschaft, Berlin</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="kontakt">
+  <div class="cta-inner">
+    <div>
+      <h2>Teil des Netzwerks werden</h2>
+      <p>Alle Absolventinnen und Absolventen des L4T-Programms sind herzlich eingeladen.</p>
+    </div>
+    <a href="mailto:alumni@dpg-physik.de" class="btn-white">Kontakt aufnehmen</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Leading for Tomorrow Alumni-Netzwerk · Deutsche Physikalische Gesellschaft e. V. · Bad Honnef</p>
+    <div class="footer-links">
+      <a href="https://www.dpg-physik.de" target="_blank">dpg-physik.de</a>
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
