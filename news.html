@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wissenschaft trifft Politik beim WE-Heraeus Forum – L4T Alumni-Netzwerk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <style>
+    /* DPG: mittleres Blau + Gelb/Gold Akzent */
+    :root {
+      --dpg-blue:    #0057a8;   /* DPG Primärblau */
+      --dpg-blue2:   #004080;   /* dunklere Variante */
+      --dpg-yellow:  #f5c400;   /* DPG Gelb/Gold */
+      --dpg-yellow2: #d9ac00;
+      --bg:          #f3f5f8;
+      --border:      #d0d8e4;
+      --text:        #1a1c2a;
+      --muted:       #556070;
+      --white:       #ffffff;
+      --max:         1080px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.65; }
+
+    /* TOP BAR */
+    .topbar { background: var(--dpg-blue2); padding: 0 2rem; height: 36px; display: flex; align-items: center; justify-content: space-between; }
+    .topbar-brand { font-size: 11.5px; color: rgba(255,255,255,0.55); letter-spacing:.04em; }
+    .topbar-brand span { color: rgba(255,255,255,0.9); font-weight: 700; }
+    .topbar-links { display: flex; gap: 1.4rem; }
+    .topbar-links a { font-size: 11px; color: rgba(255,255,255,0.55); text-decoration: none; }
+    .topbar-links a:hover { color: white; }
+
+    /* NAV */
+    nav { background: var(--dpg-blue); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 62px; border-bottom: 4px solid var(--dpg-yellow); }
+    .nav-brand { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+    .nav-badge { background: var(--dpg-yellow); color: var(--dpg-blue2); font-size: 13px; font-weight: 700; letter-spacing: .08em; padding: 5px 10px; }
+    .nav-name { color: white; font-size: 14.5px; font-weight: 300; }
+    .nav-name strong { font-weight: 700; }
+    .nav-links { display: flex; list-style: none; height: 100%; }
+    .nav-links a { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 13px; padding: 0 1rem; display: flex; align-items: center; border-bottom: 4px solid transparent; margin-bottom: -4px; transition: color .2s, border-color .2s; }
+    .nav-links a:hover { color: white; border-bottom-color: var(--dpg-yellow); }
+
+    /* HERO */
+    .hero { background: var(--dpg-blue); padding: 60px 2rem; }
+    .hero-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .hero-tag { display: inline-block; background: var(--dpg-yellow); color: var(--dpg-blue2); font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 1.1rem; }
+    .hero h1 { font-family: 'Merriweather', serif; font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 300; color: var(--dpg-yellow); line-height: 1.28; margin-bottom: 1.1rem; }
+    .hero-sub { color: rgba(255,255,255,0.85); font-size: 16px; line-height: 1.6; margin-bottom: 0; }
+
+    /* ARTICLE */
+    .article-container { max-width: 800px; margin: 40px auto; padding: 0 2rem; background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--dpg-blue); padding-top: 2.5rem; padding-bottom: 3.5rem; }
+    .article-meta { font-size: 13px; color: var(--muted); margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; display: flex; gap: 1.5rem; }
+    .article-meta strong { color: var(--text); }
+
+    .article-content { font-family: 'Open Sans', sans-serif; font-size: 15.5px; line-height: 1.8; color: var(--text); }
+    .article-content p { margin-bottom: 1.5rem; text-align: justify; }
+    .article-content h3 { font-family: 'Merriweather', serif; font-size: 1.35rem; font-weight: 400; color: var(--dpg-blue2); margin-top: 2.2rem; margin-bottom: 1rem; border-left: 3px solid var(--dpg-yellow); padding-left: 10px; }
+
+    .article-image { margin: 2rem 0; text-align: center; }
+    .article-image img { max-width: 100%; height: auto; border: 1px solid var(--border); box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+    .image-caption { font-size: 12.5px; color: var(--muted); margin-top: 8px; font-style: italic; }
+
+    .btn-back { display: inline-block; background: var(--bg); border: 1px solid var(--border); color: var(--dpg-blue2); font-weight: 700; font-size: 12.5px; letter-spacing: .07em; text-transform: uppercase; padding: 11px 22px; text-decoration: none; transition: background .2s, color .2s; margin-top: 2rem; }
+    .btn-back:hover { background: var(--dpg-blue); color: white; border-color: var(--dpg-blue); }
+
+    /* FOOTER */
+    footer { background: var(--dpg-blue2); padding: 1.8rem 2rem; margin-top: 60px; }
+    .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 1.4rem; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.45); text-decoration: none; }
+    .footer-links a:hover { color: white; }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .nav-links, .topbar-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-brand"><span>DPG</span> · Deutsche Physikalische Gesellschaft e. V.</span>
+  <div class="topbar-links">
+    <a href="https://www.dpg-physik.de" target="_blank">dpg-physik.de</a>
+    <a href="#">Mitglieder-Login</a>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-badge">DPG</div>
+    <span class="nav-name"><strong>Leading for Tomorrow</strong> Alumni-Netzwerk</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#netzwerk">Über das Netzwerk</a></li>
+    <li><a href="index.html#programm">Das Programm</a></li>
+    <li><a href="index.html#alumni">Alumni</a></li>
+    <li><a href="index.html#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">WE-Heraeus Forum</span>
+    <h1>Wissenschaft trifft Politik beim WE-Heraeus Forum</h1>
+    <p class="hero-sub">Eindrücke des Forums und eines Deep Dives über Evidenz, Effizienz und politische Kulturen</p>
+  </div>
+</section>
+
+<main class="article-container">
+  <div class="article-meta">
+    <span>Veröffentlicht: <strong>6. November 2025</strong></span>
+    <span>Autor: <strong>Christian Kuttner</strong></span>
+    <span>Kategorie: <strong>Politik &amp; Wissenschaft</strong></span>
+  </div>
+
+  <article class="article-content">
+    <p>Am 6. November 2025 zeigte sich in der Berlin-Brandenburgischen Akademie der Wissenschaften erneut, dass die Jahresveranstaltung der Wilhelm und Else Heraeus-Stiftung ein Ort lebendigen Austauschs ist. 180 geladene Gäste diskutierten über Zukunftsfragen – interdisziplinär und generationenübergreifend. Die Stiftung verbindet dabei, was selten zusammenkommt: junge Talente und erfahrene Entscheidungsträger:innen aus Wissenschaft, Industrie, Schulen, Medien und Politik.</p>
+
+    <div class="article-image">
+      <img src="image1.jpg" alt="WE-Heraeus Forum" />
+      <div class="image-caption">Jahresveranstaltung der Wilhelm und Else Heraeus-Stiftung in Berlin</div>
+    </div>
+
+    <h3>Wissenschaft als Brückenbauer</h3>
+    <p>Unter dem Motto „Mit Physik die Welt verstehen und gestalten“ eröffnete Jürgen Mlynek das Forum und betonte, dass Wissenschaft immer wieder Brücken baut: zwischen Individuen und Generationen, zwischen Nationen, Religionen und Kulturen. Ein beeindruckendes Beispiel sei das 60-jährige Jubiläum der deutsch-israelischen Beziehungen. Deren Grundstein legten Wissenschaftler:innen der Max-Planck-Gesellschaft, die bereits zwanzig Jahre nach dem Holocaust nach Israel reisten und damit den Weg zu neuer Freundschaft bereiteten. Herr Mlynek hob hervor, wie sehr die Stiftung Projekte in diesem Geist unterstützt, etwa das internationale Synchrotron-Projekt SESAME. Brücken zwischen Wissenschaft, Wirtschaft, Politik und Zivilgesellschaft zu schlagen – genau deshalb gebe es dieses Forum.</p>
+
+    <h3>Mehr Engagement in der Politik</h3>
+    <p>Ein weiterer Impuls ist das Bundestagsstipendium der Stiftung, das jungen promovierten Physiker:innen ermöglicht, Politik unmittelbar zu erleben. Herr Mlynek betonte, wie wichtig es sei, junge Menschen einen Blick „in den Maschinenraum der Politik“ zu ermöglichen – zugleich erhielten die Abgeordneten Zugang zu wissenschaftlicher Expertise. Stephan Albani (MdB, CDU) hob hervor, wie zufrieden er mit beiden seiner bisherigen Stipendiaten gewesen sei – eine Erfahrung, die Herr Mlynek zufolge viele beteiligte Abgeordnete teilen.</p>
+
+    <h3>Wissenschaftliche Politikberatung</h3>
+    <p>Nach zwei Showcases zu optischen Uhren (Prof. Tanja Mehlstäubler, PTB Braunschweig) und der Zukunft der Halbleiterfertigung (Thomas Schafbauer, Infineon) starteten fünf parallele Deep Dives. Das Thema „Wissenschaftliche Politikberatung“ stand in meiner Verantwortung, Christian Kuttner (Nature Portfolio) und Leading for Tomorrow (L4T) Alumnus, und knüpfte an meine Erfahrungen als Bundestagsstipendiat an: einer Tätigkeit im Grenzbereich zwischen wissenschaftlichem Berater und Praktikant mit Doktortitel. Als Impulsgeber eröffneten Stephan Albani und Norbert Holtkamp (Hoover Institute, Stanford University) die Runde - zwei unterschiedliche, aber komplementäre Perspektiven: Beide Physiker betonten wissenschaftliche Evidenz als Fundament politischer Entscheidungen.</p>
+
+    <h3>Deutsche Parlamentspraxis trifft US-Think-Tank-Kultur</h3>
+    <p>Herr Albani berichtete mit großer Offenheit aus seinem parlamentarischen Alltag. Wie er sich als Physiker den Spitznamen „Erklärbär“ verdiente, der komplizierte Zusammenhänge im Bundestag verständlich macht. Wie wissenschaftliche Evidenz in politische Entscheidungen Eingang findet - oft leise, kleinschrittig und weniger über Gutachten als über persönliche Gespräche. Und wie schwer es ist, Tempo, Mehrheitsfähigkeit und Kompromisskultur auszubalancieren.</p>
+    <p>Herr Holtkamp schilderte die US-Perspektive: die zentrale Rolle privat finanzierter Think Tanks, die hohe Professionalisierung politischer Beratung und strategischer Expertise sowie die Fähigkeit des US-Systems, bei Bedarf enorme Geschwindigkeit zu entfalten – etwa beim CHIPS Act. Zugleich verwies er auf die „Schaukeleffekte“ des Systems und die Instabilitäten, die entstehen, wenn Tausende Positionen bei jedem Regierungswechsel neu besetzt werden; ein Pendel zwischen Effizienz und Instabilität.</p>
+
+    <h3>Diskurs über Kontinuität und demokratische Geschwindigkeit</h3>
+    <p>In der Diskussion mit dem Publikum ging es um Effizienz und Kontinuität, das Heizungsgesetz als deutsches Beispiel politischer Hürden und um die Frage, wie viel Geschwindigkeit Demokratie verträgt. Zuspitzungen wie „TikTok vs. Parlaments-TV“ verdeutlichten diese Spannungsfelder.</p>
+    <p>Mathis Fricke (Focussed Energy), ein weiterer L4T-Alumnus der als offizieller Berichterstatter im Plenum fungierte, fasste zusammen, dass die systemischen Unterschiede beider Länder in deren Beratungskulturen und gesellschaftlichen Erwartungshaltungen lägen. Dies erklärt, warum in Deutschland Entscheidungen häufig nicht an fehlenden Fakten scheitern, sondern an der Schwierigkeit unbequeme Konsequenzen zu vermitteln. Damit stellt sich die Frage, wie sich komplexe Sachverhalte in einer Kommunikationswelt behaupten, die Geschwindigkeit und Vereinfachung belohnt.</p>
+
+    <div class="article-image">
+      <img src="image3.jpg" alt="Diskussionsrunde" />
+      <div class="image-caption">L4T-Alumnus Mathis Fricke im Plenum beim WE-Heraeus Forum</div>
+    </div>
+
+    <p>Er nahm Bezug auf den Vortrag von Prof. Mehlstäubler: Optische Uhren erreichen eine relative Genauigkeit bis 10⁻²¹, jenseits unserer Vorstellungskraft. In der Politik jedoch braucht es eine andere Art von Präzision: die Trennung von Fakten und Werturteilen und den Mut unbequeme Wahrheiten auszusprechen. Genau hier entfaltet wissenschaftliche Politikberatung ihr Potenzial.</p>
+
+    <h3>Fazit</h3>
+    <p>Das Novum der Berichterstattung aus den Deep Dives war ein gelungenes Experiment. Vier weitere L4T-Alumni - Olivia Noack, Diana Khapipova, Jana Bröder und Matthias Widmann - fassten die Ergebnisse der parallelen Sessions zusammen und stellten so die Verbindung zum Plenum her. Damit griff die Stiftung den Wunsch der Alumni auf, aktiver mitzuwirken und stärker sichtbar zu sein. Es folgten die erstmalige Verleihung der WE-Heraeus Research Fellowships sowie eine abschließende Diskussion zu Innovationsökosystemen, bevor der Abend in intensiven Gesprächen ausklang.</p>
+    <p>Im Namen aller L4T-Alumni und Bundestags-Fellows danke ich der Wilhelm und Else Heraeus-Stiftung herzlich für die Einladung und für das Vertrauen, aktiv mitzuwirken. Das WE-Heraeus-Forum bleibt ein Ort, an dem Physik Brücken baut.</p>
+
+    <a href="index.html" class="btn-back">Zurück zur Startseite</a>
+  </article>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Leading for Tomorrow Alumni-Netzwerk · Deutsche Physikalische Gesellschaft e. V. · Bad Honnef</p>
+    <div class="footer-links">
+      <a href="https://www.dpg-physik.de" target="_blank">dpg-physik.de</a>
+      <a href="index.html#impressum">Impressum</a>
+      <a href="index.html#datenschutz">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
